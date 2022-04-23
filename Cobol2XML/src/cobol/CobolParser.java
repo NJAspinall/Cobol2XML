@@ -111,20 +111,43 @@ public class CobolParser {
 	 *
 	 */
 	protected Parser DateWritten() {
+		
 		Sequence s = new Sequence();
+		
 		s.add(new CaselessLiteral("date-written") );
+		//remove the '.' appending 'date-written'
 		s.add(new Symbol('.').discard());
+		//get the following available sequence of numbers until the next datatype is reached
 		s.add(new Num());
+		//remove the hyphen between date and month
 		s.add(new Symbol('-').discard());
 
 		//This next Word actually contains month and year (which are extracted in DateAssembler
+		//get the next sequence of string until the next data type is reached
 		s.add(new Word());
+		//remove the hyphen between '1995' and 'mb.'
 		s.add(new Symbol('-').discard());
+		//remove the following string until the next data type is reached ('mb')
 		s.add(new Word().discard());
+		//remove the '.' appending 'mb'
 		s.add(new Symbol('.').discard());
+		//assign a date assembler to piece together the gathered Token data types
 		s.setAssembler(new DateAssembler());
 		return s;
 	}
+	
+	
+	
+	protected Parser function() {
+		Sequence s = new Sequence();
+		
+		s.add(new Word());
+		s.add(new Symbol('.').discard());
+		s.setAssembler(new FunctionAssembler());
+		
+		return s;
+	}
+	
 
 
 	/**

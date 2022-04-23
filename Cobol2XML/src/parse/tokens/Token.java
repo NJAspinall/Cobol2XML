@@ -35,33 +35,41 @@ public class Token {
 	 * A constant indicating that there are no more tokens
 	 */
 	public static final Token EOF = new Token(TT_EOF, "", 0);
-
+	
 	/** 
 	 * A constant indicating that a token is a number, 
 	 * like 3.14
 	 */
-	public static final TokenType TT_NUMBER = 
-		new TokenType("number");
+	public static final TokenType TT_NUMBER = new TokenType("number");
 
 	/** 
 	 * A constant indicating a token is a word, like "cat"
 	 */
-	public static final TokenType TT_WORD = 
-		new TokenType("word");
+	public static final TokenType TT_WORD = new TokenType("word");
 
 	/**
 	 * A constant indicating that a token is a symbol 
 	 * like "<=".
 	 */
-	public static final TokenType TT_SYMBOL = 
-		new TokenType("symbol");
+	public static final TokenType TT_SYMBOL = new TokenType("symbol");
 
 	/**
 	 * A constant indicating that a token is a quoted string, 
 	 * like "Launch Mi".
 	 */
-	public static final TokenType TT_QUOTED = 
-		new TokenType("quoted");
+	public static final TokenType TT_QUOTED = new TokenType("quoted");
+	
+	
+	/***
+	 * A constant indicating that a token is a function name
+	 * like 'main-logic.'
+	 * 
+	 * -Nathan
+	 */
+	public static final TokenType TT_FUNCTION = new TokenType(TT_WORD +".");
+	
+	
+	
 /**
  * Constructs a token from the given char.
  *

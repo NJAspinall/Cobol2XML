@@ -21,11 +21,12 @@
  
 package parse.tokens;
  public class TokenType {
-	 protected String name;
-/**
- * Creates a token type of the given name.
- */
-public TokenType(String name) {
-	this.name = name;
-}
+	 
+	protected String name;
+	/**
+	* Creates a token type of the given name.
+	*/
+	public TokenType(String name) {
+		this.name = name;
+	}
 }

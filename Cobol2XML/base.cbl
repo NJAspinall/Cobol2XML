@@ -10,3 +10,4 @@ working-storage section.
 
 procedure division.
 
+my-function.

@@ -67,6 +67,13 @@ public class XMLPayload {
 	}
 	
 	
+	/***
+	 * Adds the elements that relate to the Cobol file metadata, is only used once at the start.
+	 * 
+	 * @param c : the Cobol file object
+	 * 
+	 * -Nathan
+	 */
 	public void addElements(Cobol c) {
 		/*
 		 *  add sectionName element
@@ -202,6 +209,22 @@ public class XMLPayload {
 			String s = "" + intElement;
 			cobolname.appendChild(doc.createTextNode(s));
 			rootElement.appendChild(cobolname);
+		}
+	}
+	
+	
+	/***
+	 * Creates a function element.
+	 * 
+	 * @param stringElement : the name of the Cobol function
+	 * 
+	 * -Nathan
+	 */
+	void addFunctionElement(String stringElement) {
+		if(stringElement != "") {
+			Element functionName = doc.createElement("function");
+			functionName.appendChild(doc.createTextNode(stringElement));  // +"." ?
+			rootElement.appendChild(functionName);
 		}
 	}
 	

@@ -21,6 +21,8 @@
 
 package cobol;
 
+import java.util.ArrayList;
+
 import utensil.*;
 
 public class Cobol implements PubliclyCloneable {
@@ -31,6 +33,8 @@ public class Cobol implements PubliclyCloneable {
 	protected int dayDateWritten = 0;
 	protected String monthDateWritten;
 	protected int yearDateWritten = 0;
+	
+	protected ArrayList<String> functions = new ArrayList<String>(); 
 
 	
 	/**
@@ -176,6 +180,14 @@ public class Cobol implements PubliclyCloneable {
 	}
 
 
+	
+	public void addFunctionElement(String functionName) {
+		this.functions.add(functionName);
+	}
+	
+	
+	
+	
 
 	/**
 	 * Set the name of this cobol file.
@@ -247,4 +259,5 @@ public class Cobol implements PubliclyCloneable {
 		
 		return buf.toString();
 	}
+
 }
