@@ -55,6 +55,10 @@ public class CobolParser {
 		
 		a.add( DateWritten() );
 		
+		a.add( CommentLine() );
+		
+		a.add( Function() );
+		
 		a.add(new Empty());
 		return a;
 	}
@@ -138,10 +142,39 @@ public class CobolParser {
 	
 	
 	
-	protected Parser function() {
+	/*
+	* Return a parser that will recognize the grammar:
+	*
+	* ***--- comment text
+	*
+	*/
+	protected Parser CommentLine() {
+	//System.out.println("commentLine()");
+	Sequence s = new Sequence();
+	s.add(new Symbol("*"));
+	s.add(new Symbol("*"));
+	s.add(new Symbol("*"));
+	s.add(new Symbol("-"));
+	s.add(new Symbol("-"));
+	s.add(new Symbol("-"));
+	s.add(new Word().setAssembler(new CommentLineAssembler()) );
+	//s.setAssembler(new CommentLineAssembler());
+	return s;
+	}
+
+	
+	
+	
+	protected Parser Function() {
 		Sequence s = new Sequence();
 		
+		//get the Function name
 		s.add(new Word());
+		//check against list of restricted words? How do we distinguish between this and program-id? check if inside of working-storage section or if last element.
+		//Could also check if inside procedure.
+		
+		
+		//remove the '.' following the function name.
 		s.add(new Symbol('.').discard());
 		s.setAssembler(new FunctionAssembler());
 		

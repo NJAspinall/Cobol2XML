@@ -27,6 +27,7 @@ import utensil.*;
 
 public class Cobol implements PubliclyCloneable {
 	protected String commentLine;
+	
 	protected String program_id;
 	protected String sectionName;
 	protected String divisionName;
@@ -182,6 +183,7 @@ public class Cobol implements PubliclyCloneable {
 
 	
 	public void addFunctionElement(String functionName) {
+		System.out.println(functionName);
 		this.functions.add(functionName);
 	}
 	

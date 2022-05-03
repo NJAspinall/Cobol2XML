@@ -11,3 +11,6 @@ working-storage section.
 procedure division.
 
 my-function.
+
+
+***--- This is a comment

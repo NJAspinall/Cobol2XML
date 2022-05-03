@@ -64,9 +64,26 @@ public class Token {
 	 * A constant indicating that a token is a function name
 	 * like 'main-logic.'
 	 * 
-	 * -Nathan
+	 * - Nathan
 	 */
-	public static final TokenType TT_FUNCTION = new TokenType(TT_WORD +".");
+	public static final TokenType TT_FUNCTION = new TokenType("function");
+	
+	
+	/***
+	 * a constant indicating that that a token is the beginning of a comment.
+	 * 
+	 * - Nathan
+	 */
+	public static final TokenType TT_COMMENT = new TokenType("comment");
+	
+	/***
+	 * A constant indicating that a token is the start of a comment opening
+	 * 
+	 * - Nathan
+	 */
+	public static final Token COMMENTOPENER = new Token(TT_COMMENT, "*"+"*"+"*"+"-"+"-"+"-", 0);
+	
+	
 	
 	
 	
@@ -209,6 +226,17 @@ public boolean isSymbol() {
 public boolean isWord() {
 	return ttype == TT_WORD;
 }
+/**
+ * Returns true if this token is a comment.
+ *
+ * @return   true, if this token is a comment.
+ * 
+ * - Nathan
+ */
+public boolean isComment() {
+	return ttype == TT_COMMENT;
+}
+
 /**
  * Returns the numeric value of this token.
  *

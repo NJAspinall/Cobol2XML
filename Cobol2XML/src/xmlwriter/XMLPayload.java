@@ -67,6 +67,7 @@ public class XMLPayload {
 	}
 	
 	
+	
 	/***
 	 * Adds the elements that relate to the Cobol file metadata, is only used once at the start.
 	 * 
@@ -135,7 +136,16 @@ public class XMLPayload {
 		if(yearDateWritten != 0) {
 			this.addYearDateWrittenElement( yearDateWritten );
 		}
-
+		
+		
+		String commentLine = c.getCommentLine();
+		if(commentLine != null ) {
+			this.addCommentLineElement( commentLine );
+			System.out.println("Got Section");
+			// Add contents of procedure division
+		} else {
+			System.out.println("Comment Line null");
+		}
 	}
 	
 
@@ -221,10 +231,12 @@ public class XMLPayload {
 	 * -Nathan
 	 */
 	void addFunctionElement(String stringElement) {
+		System.out.println("[XMLPayload.addFunctionElement] String = " +stringElement+ ".");
 		if(stringElement != "") {
-			Element functionName = doc.createElement("function");
-			functionName.appendChild(doc.createTextNode(stringElement));  // +"." ?
-			rootElement.appendChild(functionName);
+			Element function = doc.createElement("function");
+			function.setAttribute("name", stringElement);
+			//functionName.appendChild(doc.createTextNode(stringElement));  // +"." ?
+			rootElement.appendChild(function);
 		}
 	}
 	

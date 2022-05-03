@@ -1,15 +1,16 @@
-Apr 22, 2022 11:18:43 PM cobol.Cobol2XML main
+May 03, 2022 1:13:44 PM cobol.Cobol2XML main
 INFO: Cobol2XML V0.1.0
-Apr 22, 2022 11:18:43 PM xmlwriter.XMLPayload writeFile
+May 03, 2022 1:13:44 PM xmlwriter.XMLPayload writeFile
 INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <cobol>
     <division>identification</division>
-    <Program-ID>base</Program-ID>
+    <Program-ID>base_jb</Program-ID>
     <day-date-written>7</day-date-written>
-    <month-date-written>mar</month-date-written>
+    <month-date-written>jul</month-date-written>
     <year-date-written>1995</year-date-written>
     <division>data</division>
     <section>working-storage</section>
     <division>procedure</division>
+    <comment>This</comment>
 </cobol>
 
